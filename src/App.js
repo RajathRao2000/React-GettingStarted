@@ -1,6 +1,8 @@
-import ExpenceItem from "./components/ExpenceItem";
+import React from "react";
 
-function App() {
+import Expenses from "./components/Expenses/Expenses";
+
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -9,7 +11,13 @@ function App() {
       date: new Date(2020, 7, 14),
       location: "pune",
     },
-    { id: "e2", title: "New TV", amount: 799.49, date: new Date(2021, 2, 12),location: "pune" },
+    {
+      id: "e2",
+      title: "New TV",
+      amount: 799.49,
+      date: new Date(2021, 2, 12),
+      location: "pune",
+    },
     {
       id: "e3",
       title: "Car Insurance",
@@ -26,23 +34,19 @@ function App() {
     },
   ];
 
-  let data = [];
-  for (let i = 0; i < expenses.length; i++) {
-    data.push(
-      <ExpenceItem
-        title={expenses[i].title}
-        amount={expenses[i].amount}
-        date={expenses[i].date.toISOString()}
-        location={expenses[i].location}
-      ></ExpenceItem>
-    );
-  }
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2', {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
+
   return (
     <div>
       <h2>Let's get started!</h2>
-      {data}
+      <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;
